@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN = os.getenv('DC_TOKEN')
 
+
 client = commands.Bot(command_prefix = '!')
 status = cycle(['status 1', 'status 2'])
 

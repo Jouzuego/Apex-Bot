@@ -1,6 +1,11 @@
 import discord
 from discord.ext import commands
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv('AL_TOKEN')
 
 class map_rotation(commands.Cog):
 
@@ -9,7 +14,7 @@ class map_rotation(commands.Cog):
 
     @commands.command(aliases = ['map rotation', 'mr'])
     async def map_rotation(self, ctx):
-        response = requests.get('https://api.mozambiquehe.re/maprotation?lang=en-us&auth=ZzI6eVvodK8CuURB0Okx')
+        response = requests.get('https://api.mozambiquehe.re/maprotation?lang=en-us&auth={}' .format(TOKEN))
         data = response.json()
         current_map = data['current']['map']
         current_map_timer = data['current']['remainingTimer']
